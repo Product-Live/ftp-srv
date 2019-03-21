@@ -5,28 +5,32 @@ class Logger {
 		this._meta = info;
 	}
 
+	log(...arg) {
+		// return console.log(JSON.stringify({...this._meta, log: arg}));
+	}
+
 	info(...arg) {
-		return console.log({...this._meta, log: arg});
+		return this.log(...arg);
 	}
 
 	debug(...arg) {
-		return console.log({...this._meta, log: arg});
+		return this.log(...arg);
 	}
 
 	warn(...arg) {
-		return console.log({...this._meta, log: arg});
+		return this.log(...arg);
 	}
 
 	error(...arg) {
-		return console.log({...this._meta, log: arg});
+		return this.log(...arg);
 	}
 
 	silly(...arg) {
-		return console.log({...this._meta, log: arg});
+		return this.log(...arg);
 	}
 
 	trace(...arg) {
-		return console.log({...this._meta, log: arg});
+		return this.log(...arg);
 	}
 
 	child(...arg) {
