@@ -33,23 +33,6 @@
 	"release": {
 		"verifyConditions": "condition-circle"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-		}
-	},
-	"lint-staged": {
-		"*.js": [
-			"eslint --fix",
-			"git add"
-		]
-	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
 	"dependencies": {
 		"bluebird": "^3.5.1",
 		"ip": "^1.1.5",
