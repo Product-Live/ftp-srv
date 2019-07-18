@@ -44,7 +44,9 @@ class Passive extends Connector {
         this.log.trace({port, remoteAddress: socket.remoteAddress}, 'Passive connection fulfilled.');
 
         this.dataSocket = socket;
-        this.dataSocket.setEncoding(this.connection.transferType);
+		if (this.connection.transferType !== 'binary') {
+	        this.dataSocket.setEncoding(this.connection.transferType);
+		}
         this.dataSocket.on('error', (err) => this.server && this.server.emit('client-error', {connection: this.connection, context: 'dataSocket', error: err}));
 
         if (!this.connection.secure) {
