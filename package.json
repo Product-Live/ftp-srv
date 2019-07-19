@@ -66,13 +66,13 @@
     "bluebird": "^3.5.1",
     "bunyan": "^1.8.12",
     "ip": "^1.1.5",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "moment": "^2.22.1",
     "uuid": "^3.2.1",
     "yargs": "^11.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.5.2",
+    "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^7.5.0",
     "@icetee/ftp": "^1.0.2",
     "chai": "^4.2.0",
