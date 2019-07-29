@@ -187,9 +187,9 @@ describe('Integration', function () {
       });
 
       client.put(buffer, 'fail.txt', (err) => {
+        expect(err).to.exist;
         setImmediate(() => {
           const fileExists = fs.existsSync(fsPath);
-          expect(err).to.exist;
           expect(fileExists).to.equal(false);
           done();
         });
@@ -213,6 +213,24 @@ describe('Integration', function () {
             expect(data.toString()).to.equal('test text file');
             done();
           });
+        });
+      });
+    });
+
+    it('STOR logo.png', (done) => {
+      const logo = `${__dirname}/../logo.png`;
+      const fsPath = `${clientDirectory}/${name}/logo.png`;
+
+      client.put(logo, 'logo.png', (err) => {
+        expect(err).to.not.exist;
+        setImmediate(() => {
+          expect(fs.existsSync(fsPath)).to.equal(true);
+
+          const logoContents = fs.readFileSync(logo);
+          const transferedContects = fs.readFileSync(fsPath);
+
+          expect(logoContents.equals(transferedContects));
+          done();
         });
       });
     });
