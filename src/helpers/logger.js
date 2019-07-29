@@ -5,7 +5,7 @@ class Logger {
 		this._meta = info;
 	}
 
-	log(...arg) {
+	log() {
 		// return console.log(JSON.stringify({...this._meta, log: arg}));
 	}
 
