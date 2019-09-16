@@ -5,8 +5,8 @@ class Logger {
 		this._meta = info;
 	}
 
-	log() {
-		// return console.log(JSON.stringify({...this._meta, log: arg}));
+	log(...arg) {
+		return process.stdout.write(JSON.stringify({...this._meta, log: arg}) + '\n');
 	}
 
 	info(...arg) {
