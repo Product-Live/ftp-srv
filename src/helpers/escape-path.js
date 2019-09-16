@@ -1,4 +1,4 @@
-
-module.exports = (path) => {
-	return path.replace(/"/g, '""');
+module.exports = function (path) {
+  return path
+    .replace(/"/g, '""');
 };

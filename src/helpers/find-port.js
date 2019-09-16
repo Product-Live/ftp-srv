@@ -1,18 +1,17 @@
-
 const net = require('net');
 const errors = require('../errors');
 
 const MAX_PORT = 65535;
 const MAX_PORT_CHECK_ATTEMPT = 5;
 
-function *portNumberGenerator(min, max = MAX_PORT) {
-	let current = min;
-	while (true) {
-		if (current > MAX_PORT || current > max) {
-			current = min;
-		}
-		yield current++;
-	}
+function* portNumberGenerator(min, max = MAX_PORT) {
+  let current = min;
+  while (true) {
+    if (current > MAX_PORT || current > max) {
+      current = min;
+    }
+    yield current++;
+  }
 }
 
 function getNextPortFactory(host, portMin, portMax, maxAttempts = MAX_PORT_CHECK_ATTEMPT) {
@@ -57,6 +56,6 @@ function getNextPortFactory(host, portMin, portMax, maxAttempts = MAX_PORT_CHECK
 }
 
 module.exports = {
-	getNextPortFactory: getNextPortFactory,
-	portNumberGenerator: portNumberGenerator
+  getNextPortFactory,
+  portNumberGenerator
 };
