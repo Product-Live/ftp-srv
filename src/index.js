@@ -1,19 +1,19 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
 const nodeUrl = require('url');
-const buyan = require('bunyan');
 const net = require('net');
 const tls = require('tls');
 const EventEmitter = require('events');
 
 const Connection = require('./connection');
 const {getNextPortFactory} = require('./helpers/find-port');
+const Logger = require('./helpers/logger');
 
 class FtpServer extends EventEmitter {
   constructor(options = {}) {
     super();
     this.options = Object.assign({
-      log: buyan.createLogger({name: 'ftp-srv'}),
+      log: new Logger({name: 'ftp-srv'}),
       url: 'ftp://127.0.0.1:21',
       pasv_min: 1024,
       pasv_max: 65535,
